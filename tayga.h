@@ -36,7 +36,9 @@
 #include <linux/if_ether.h>
 
 #include "list.h"
+#if HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 
 /* Configuration knobs */
