@@ -23,6 +23,10 @@
 #include <pwd.h>
 #include <grp.h>
 
+#ifndef TUN_PATH
+#define TUN_PATH "/dev/net/tun"
+#endif
+
 #define USAGE_TEXT	\
 "Usage: %s [-c|--config CONFIGFILE] [-d] [-n|--nodetach] [-u|--user USERID]\n" \
 "             [-g|--group GROUPID] [-r|--chroot] [-p|--pidfile PIDFILE]\n\n" \
@@ -89,9 +93,9 @@ static void tun_setup(int do_mktun, int do_rmtun)
 	struct ifreq ifr;
 	int fd;
 
-	gcfg->tun_fd = open("/dev/net/tun", O_RDWR);
+	gcfg->tun_fd = open(TUN_PATH, O_RDWR);
 	if (gcfg->tun_fd < 0) {
-		slog(LOG_CRIT, "Unable to open /dev/net/tun, aborting: %s\n",
+		slog(LOG_CRIT, "Unable to open " TUN_PATH ", aborting: %s\n",
 				strerror(errno));
 		exit(1);
 	}
