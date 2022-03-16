@@ -25,7 +25,7 @@ LOCAL_MODULE_TAGS := eng
 
 LOCAL_CFLAGS := \
 	-DPACKAGE=\"tayga\" \
-	-DPACKAGE_BUGREPORT=\"openthread-users@googlegroups.com\" \
+	-DPACKAGE_BUGREPORT=\"https://github.com/openthread/tayga/issues\" \
 	-DPACKAGE_NAME=\"tayga\" \
 	-DPACKAGE_STRING=\"tayga\ 0.9.2\" \
 	-DPACKAGE_TARNAME=\"tayga\" \
